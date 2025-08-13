@@ -10,10 +10,12 @@ Bem-vindo ao Neovim com a configuração NeoMood! Este guia irá ensinar tudo qu
 3. [Lição 3: Seleção Visual](#lição-3-seleção-visual)
 4. [Lição 4: Objetos de Texto](#lição-4-objetos-de-texto)
 5. [Lição 5: Pesquisa e Navegação](#lição-5-pesquisa-e-navegação)
-6. [Lição 6: Macros Básicos](#lição-6-macros-básicos)
-7. [Lição 7: Operações de Copiar e Colar](#lição-7-operações-de-copiar-e-colar)
-8. [Recursos do NeoMood](#recursos-do-neomood)
-9. [Resumo](#resumo)
+6. [Lição 6: Envolvimento de Texto (Nvim-Surround)](#lição-6-envolvimento-de-texto-nvim-surround)
+7. [Lição 7: Macros Básicos](#lição-7-macros-básicos)
+8. [Lição 8: Múltiplos Cursores (Especial do NeoMood)](#lição-8-múltiplos-cursores-especial-do-neomood)
+9. [Lição 9: Operações de Copiar e Colar](#lição-9-operações-de-copiar-e-colar)
+10. [Recursos do NeoMood](#recursos-do-neomood)
+11. [Resumo](#resumo)
 
 ## O que é NeoMood?
 
@@ -98,19 +100,23 @@ Esta gramática torna o Neovim incrivelmente expressivo e eficiente!
 
 ### Lição 1.1: PRIMEIROS PASSOS
 
-** Digite: nvim <ENTER> para iniciar o NeoMood **
+** Você já está no NeoMood lendo este tutorial! **
 
   1. Certifique-se de que sua tecla caps-lock NÃO esteja pressionada.
 
   2. Pressione a tecla <ESC> para ter certeza de que está no modo Normal.
 
-  3. Digite: i <ENTER> para entrar no modo Inserção.
+  3. Mova seu cursor para a linha abaixo que diz "Linha de prática:"
 
-  4. Digite: Bem-vindo ao NeoMood!
+  4. Digite: i <ENTER> para entrar no modo Inserção.
 
-  5. Pressione <ESC> para voltar ao modo Normal.
+  5. Digite: Bem-vindo ao NeoMood!
 
-  6. Digite: :w teste.txt <ENTER> para salvar o arquivo.
+  6. Pressione <ESC> para voltar ao modo Normal.
+
+  7. Digite: u <ENTER> para desfazer suas alterações.
+
+Linha de prática: (tente editar aqui)
 
 NOTA: Você está agora no modo Normal. É aqui que a maioria dos comandos do NeoMood funcionam.
 
@@ -717,7 +723,7 @@ Texto de prática para envolvimentos:
 
 ---> mundo
 
-### Lição 6.2: EXECUTANDO UM MACRO
+### Lição 7.2: EXECUTANDO UM MACRO
 
 ** Digite @a para executar o macro que você acabou de gravar. **
 
@@ -735,7 +741,7 @@ Texto de prática para envolvimentos:
 
 NOTA: As linhas devem agora ficar: "Olá, amigo!", "Olá, usuário!", "Olá, todos!"
 
-### Lição 6.3: REPETINDO MACROS
+### Lição 7.3: REPETINDO MACROS
 
 ** Digite @@ para repetir o último macro, ou 3@a para executar o macro 'a' três vezes. **
 
@@ -760,9 +766,122 @@ NOTA: As linhas devem agora ficar: "Olá, amigo!", "Olá, usuário!", "Olá, tod
 
 NOTA: Macros são poderosos para tarefas de edição repetitivas!
 
-## Lição 7: Operações de Copiar e Colar
+## Lição 8: Múltiplos Cursores (Especial do NeoMood)
 
-### Lição 7.1: COPIAR E COLAR BÁSICO
+Múltiplos cursores permitem editar várias localizações simultaneamente, tornando tarefas de edição repetitivas incrivelmente rápidas.
+
+### Lição 8.1: SELEÇÃO BÁSICA COM MÚLTIPLOS CURSORES
+
+** Use Ctrl+n para selecionar palavras correspondentes e criar múltiplos cursores. **
+
+  1. Mova o cursor para a linha abaixo marcada com --->.
+
+  2. Coloque seu cursor na primeira ocorrência da palavra "maçã".
+
+  3. Pressione Ctrl+n para selecionar a palavra e criar um cursor.
+
+  4. Pressione Ctrl+n novamente para adicionar a segunda "maçã" à sua seleção.
+
+  5. Pressione Ctrl+n mais uma vez para adicionar a terceira "maçã" à sua seleção.
+
+  6. Digite cw para alterar todas as três palavras (isso coloca você no modo inserção).
+
+  7. Agora digite "laranja" para substituir todas as três palavras de uma vez.
+
+  8. Pressione <ESC> para sair do modo múltiplos cursores.
+
+---> A maçã é vermelha, a maçã é doce, e a maçã é deliciosa.
+
+### Lição 8.2: CORRESPONDER TODAS AS OCORRÊNCIAS
+
+** Use <Espaço>n para selecionar todas as palavras correspondentes de uma vez. **
+
+  1. Mova para a linha abaixo marcada com --->.
+
+  2. Coloque seu cursor em qualquer ocorrência de "banana".
+
+  3. Pressione <Espaço>n para selecionar TODAS as ocorrências de "banana" de uma vez.
+
+  4. Digite "manga" para substituir todas as instâncias simultaneamente.
+
+  5. Pressione <ESC> para sair do modo múltiplos cursores.
+
+---> Eu gosto de banana, banana é amarela, vitamina de banana, banana fresca, banana madura, banana doce, pão de banana, banana tropical.
+
+### Lição 8.3: GERENCIAMENTO SELETIVO DE CURSORES
+
+** Use setas direcionais e <Espaço>x para gerenciar múltiplos cursores precisamente. **
+
+  1. Mova para a linha abaixo marcada com --->.
+
+  2. Coloque seu cursor em qualquer "uva".
+
+  3. Pressione <Espaço>n para selecionar todas as ocorrências de "uva".
+
+  4. Pressione a seta <direita> para percorrer os cursores.
+
+  5. Quando estiver em um cursor que deseja remover, pressione <Espaço>x.
+
+  6. Continue até ter apenas 2-3 cursores ativos.
+
+  7. Digite "fruta" para substituir as palavras selecionadas.
+
+  8. Pressione <ESC> para sair do modo múltiplos cursores.
+
+---> Uva fresca, uva roxa, uva do vinho, uva de mesa, suco de uva, videira de uva, cacho de uva, colheita de uva.
+
+### Lição 8.4: PADRÕES DE EDIÇÃO COM MÚLTIPLOS CURSORES
+
+** Pratique fluxos de trabalho comuns com múltiplos cursores. **
+
+**Exercício 1: Adicionando prefixos**
+1. Coloque o cursor em "tarefa" na linha abaixo
+2. Pressione Ctrl+n duas vezes para selecionar as três primeiras palavras "tarefa"
+3. Pressione I para entrar no modo inserção no início
+4. Digite "FAZER: "
+5. Pressione <ESC> para terminar
+
+---> Complete tarefa um, termine tarefa dois, revise tarefa três, envie tarefa quatro.
+
+**Exercício 2: Envolvendo com aspas**
+1. Coloque o cursor em "palavra" na linha abaixo
+2. Pressione <Espaço>n para selecionar todas as ocorrências de "palavra"
+3. Pressione I para ir ao início, digite " (aspas)
+4. Pressione <ESC>, depois A para ir ao fim, digite " (aspas)
+5. Pressione <ESC> para terminar
+
+---> Cada palavra deve ficar entre aspas: palavra, palavra, palavra, palavra, palavra.
+
+### Lição 8.5: TÉCNICAS AVANÇADAS DE MÚLTIPLOS CURSORES
+
+** Combine múltiplos cursores com outras operações do Vim. **
+
+**Cursores verticais com Ctrl+j/Ctrl+k:**
+
+1. Mova para a primeira linha abaixo marcada com --->.
+2. Pressione Ctrl+j para adicionar um cursor na linha abaixo.
+3. Pressione Ctrl+j novamente para adicionar outro cursor.
+4. Pressione Ctrl+j mais uma vez para um quarto cursor.
+5. Pressione A para ir ao fim de todas as linhas simultaneamente.
+6. Digite " - CONCLUÍDO" em todas as linhas de uma vez.
+7. Pressione <ESC> para terminar.
+
+---> Item um
+---> Item dois
+---> Item três
+---> Item quatro
+
+**Lembre-se:**
+- `Ctrl+n` - Adicionar próxima palavra correspondente à seleção
+- `<Espaço>n` - Selecionar TODAS as palavras correspondentes de uma vez
+- `<esquerda>/<direita>` - Navegar entre cursores ativos
+- `<Espaço>x` - Remover cursor atual da seleção
+- `Ctrl+j/Ctrl+k` - Adicionar cursores verticalmente acima/abaixo
+- `<ESC>` - Sair do modo múltiplos cursores
+
+## Lição 9: Operações de Copiar e Colar
+
+### Lição 9.1: COPIAR E COLAR BÁSICO
 
 ** Digite yy para copiar uma linha e p para colá-la. **
 
@@ -780,7 +899,7 @@ NOTA: Macros são poderosos para tarefas de edição repetitivas!
 ---> Outra linha para prática de cópia
 ---> Última linha do bloco de prática
 
-### Lição 7.2: COPIAR PALAVRAS E CARACTERES
+### Lição 9.2: COPIAR PALAVRAS E CARACTERES
 
 ** Use yw para copiar palavras e diferentes movimentos com y. **
 
@@ -800,7 +919,7 @@ NOTA: Macros são poderosos para tarefas de edição repetitivas!
 
 ---> A rápida raposa marrom pula sobre o cão preguiçoso
 
-### Lição 7.3: COPIAR E COLAR COM SELEÇÃO VISUAL
+### Lição 9.3: COPIAR E COLAR COM SELEÇÃO VISUAL
 
 ** Use o modo visual para cópia precisa. **
 
@@ -826,7 +945,7 @@ NOTA: Macros são poderosos para tarefas de edição repetitivas!
 
 ---> Esta linha inteira será copiada usando modo visual de linha
 
-### Lição 7.4: COPIAR PARA REGISTRADORES ESPECÍFICOS
+### Lição 9.4: COPIAR PARA REGISTRADORES ESPECÍFICOS
 
 ** Use "ay para copiar ao registrador 'a' e "ap para colar do registrador 'a'. **
 
@@ -848,7 +967,7 @@ NOTA: Macros são poderosos para tarefas de edição repetitivas!
 ---> Segunda linha vai para o registrador b
 ---> Terceira linha vai para o registrador c
 
-### Lição 7.5: COPIAR E COLAR COM OBJETOS DE TEXTO
+### Lição 9.5: COPIAR E COLAR COM OBJETOS DE TEXTO
 
 ** Combine cópia com objetos de texto para cópia eficiente. **
 
@@ -880,7 +999,7 @@ NOTA: Macros são poderosos para tarefas de edição repetitivas!
 
 ---> Esta função deve completa os exercícios de prática de cópia
 
-### Lição 7.6: COPIAR PARA ÁREA DE TRANSFERÊNCIA DO SISTEMA
+### Lição 9.6: COPIAR PARA ÁREA DE TRANSFERÊNCIA DO SISTEMA
 
 ** Use "+ para acessar a área de transferência do sistema. **
 
@@ -894,7 +1013,7 @@ NOTA: Macros são poderosos para tarefas de edição repetitivas!
 
 ---> Este texto será copiado para sua área de transferência do sistema
 
-### Lição 7.7: PRÁTICA DE COPIAR E COLAR
+### Lição 9.7: PRÁTICA DE COPIAR E COLAR
 
 ** Pratique diferentes combinações de copiar e colar. **
 

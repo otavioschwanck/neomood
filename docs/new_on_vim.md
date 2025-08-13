@@ -10,10 +10,12 @@ Welcome to Neovim with the NeoMood configuration! This guide will teach you ever
 3. [Lesson 3: Visual Selection](#lesson-3-visual-selection)
 4. [Lesson 4: Text Objects](#lesson-4-text-objects)
 5. [Lesson 5: Searching and Navigation](#lesson-5-searching-and-navigation)
-6. [Lesson 6: Basic Macros](#lesson-6-basic-macros)
-7. [Lesson 7: Copy and Paste Operations](#lesson-7-copy-and-paste-operations)
-8. [NeoMood Features](#neomood-features)
-9. [Summary](#summary)
+6. [Lesson 6: Text Surroundings (Nvim-Surround)](#lesson-6-text-surroundings-nvim-surround)
+7. [Lesson 7: Basic Macros](#lesson-7-basic-macros)
+8. [Lesson 8: Multiple Cursors (NeoMood Special)](#lesson-8-multiple-cursors-neomood-special)
+9. [Lesson 9: Copy and Paste Operations](#lesson-9-copy-and-paste-operations)
+10. [NeoMood Features](#neomood-features)
+11. [Summary](#summary)
 
 ## What is NeoMood?
 
@@ -98,19 +100,23 @@ This grammar makes Neovim incredibly expressive and efficient!
 
 ### Lesson 1.1: FIRST STEPS
 
-** Type: nvim <ENTER> to start NeoMood **
+** You're already in NeoMood reading this tutorial! **
 
   1. Make sure your caps-lock key is NOT depressed.
 
   2. Press the <ESC> key to make sure you are in Normal mode.
-type: Welcome 
-  3. Type: i <ENTER> to enter Insert mode.
 
-  4. Type: Welcome to NeoMood!
+  3. Move your cursor to the line below that says "Practice line:"
 
-  5. Press <ESC> to go back to Normal mode.
+  4. Type: i <ENTER> to enter Insert mode.
 
-  6. Type: :w test.txt <ENTER> to save the file.
+  5. Type: Welcome to NeoMood!
+
+  6. Press <ESC> to go back to Normal mode.
+
+  7. Type: u <ENTER> to undo your changes.
+
+Practice line: (try editing here)
 
 NOTE: You are now in Normal mode. This is where most NeoMood commands work.
 
@@ -717,7 +723,7 @@ Practice text for surroundings:
 
 ---> world
 
-### Lesson 6.2: PLAYING A MACRO
+### Lesson 7.2: PLAYING A MACRO
 
 ** Type @a to play the macro you just recorded. **
 
@@ -735,7 +741,7 @@ Practice text for surroundings:
 
 NOTE: The lines should now read: "Hello, friend!", "Hello, user!", "Hello, everyone!"
 
-### Lesson 6.3: REPEATING MACROS
+### Lesson 7.3: REPEATING MACROS
 
 ** Type @@ to repeat the last macro, or 3@a to run macro 'a' three times. **
 
@@ -760,9 +766,122 @@ NOTE: The lines should now read: "Hello, friend!", "Hello, user!", "Hello, every
 
 NOTE: Macros are powerful for repetitive editing tasks!
 
-## Lesson 7: Copy and Paste Operations
+## Lesson 8: Multiple Cursors (NeoMood Special)
 
-### Lesson 7.1: BASIC COPY AND PASTE
+Multiple cursors allow you to edit multiple locations simultaneously, making repetitive editing tasks incredibly fast.
+
+### Lesson 8.1: BASIC MULTIPLE CURSOR SELECTION
+
+** Use Ctrl+n to select matching words and create multiple cursors. **
+
+  1. Move the cursor to the line below marked --->.
+
+  2. Put your cursor on the first occurrence of the word "apple".
+
+  3. Press Ctrl+n to select the word and create a cursor.
+
+  4. Press Ctrl+n again to add the second "apple" to your selection.
+
+  5. Press Ctrl+n once more to add the third "apple" to your selection.
+
+  6. Type cw to change all three words (this puts you in insert mode).
+
+  7. Now type "orange" to replace all three words at once.
+
+  8. Press <ESC> to exit multiple cursor mode.
+
+---> The apple is red, the apple is sweet, and the apple is delicious.
+
+### Lesson 8.2: MATCH ALL OCCURRENCES
+
+** Use <Space>n to select all matching words at once. **
+
+  1. Move to the line below marked --->.
+
+  2. Put your cursor on any occurrence of "banana".
+
+  3. Press <Space>n to select ALL occurrences of "banana" at once.
+
+  4. Type "mango" to replace all instances simultaneously.
+
+  5. Press <ESC> to exit multiple cursor mode.
+
+---> I like banana, banana is yellow, banana smoothie, fresh banana, ripe banana, sweet banana, banana bread, tropical banana.
+
+### Lesson 8.3: SELECTIVE CURSOR MANAGEMENT
+
+** Use arrow keys and <Space>x to manage multiple cursors precisely. **
+
+  1. Move to the line below marked --->.
+
+  2. Put your cursor on any "grape".
+
+  3. Press <Space>n to select all "grape" occurrences.
+
+  4. Press <right> arrow to cycle through the cursors.
+
+  5. When you're on a cursor you want to remove, press <Space>x.
+
+  6. Continue until you have only 2-3 cursors active.
+
+  7. Type "berry" to replace the selected words.
+
+  8. Press <ESC> to exit multiple cursor mode.
+
+---> Fresh grape, purple grape, wine grape, table grape, grape juice, grape vine, grape cluster, grape harvest.
+
+### Lesson 8.4: MULTIPLE CURSOR EDITING PATTERNS
+
+** Practice common multiple cursor workflows. **
+
+**Exercise 1: Adding prefixes**
+1. Put cursor on "task" in the line below
+2. Press Ctrl+n twice to select first three "task" words
+3. Press I to enter insert mode at the beginning
+4. Type "TODO: "
+5. Press <ESC> to finish
+
+---> Complete task one, finish task two, review task three, submit task four.
+
+**Exercise 2: Wrapping with quotes**
+1. Put cursor on "word" in the line below  
+2. Press <Space>n to select all "word" occurrences
+3. Press I to go to beginning, type " (quote)
+4. Press <ESC>, then A to go to end, type " (quote)
+5. Press <ESC> to finish
+
+---> Each word should become quoted: word, word, word, word, word.
+
+### Lesson 8.5: ADVANCED MULTIPLE CURSOR TECHNIQUES
+
+** Combine multiple cursors with other Vim operations. **
+
+**Vertical cursors with Ctrl+j/Ctrl+k:**
+
+1. Move to the first line below marked --->.
+2. Press Ctrl+j to add a cursor on the line below.
+3. Press Ctrl+j again to add another cursor.
+4. Press Ctrl+j once more for a fourth cursor.
+5. Press A to go to end of all lines simultaneously.
+6. Type " - DONE" on all lines at once.
+7. Press <ESC> to finish.
+
+---> Item one
+---> Item two  
+---> Item three
+---> Item four
+
+**Remember:**
+- `Ctrl+n` - Add next matching word to selection
+- `<Space>n` - Select ALL matching words at once  
+- `<left>/<right>` - Navigate between active cursors
+- `<Space>x` - Remove current cursor from selection
+- `Ctrl+j/Ctrl+k` - Add cursors vertically above/below
+- `<ESC>` - Exit multiple cursor mode
+
+## Lesson 9: Copy and Paste Operations
+
+### Lesson 9.1: BASIC COPY AND PASTE
 
 ** Type yy to yank (copy) a line and p to paste it. **
 
@@ -780,7 +899,7 @@ NOTE: Macros are powerful for repetitive editing tasks!
 ---> Another line for copy practice
 ---> Last line of the practice block
 
-### Lesson 7.2: COPY WORDS AND CHARACTERS
+### Lesson 9.2: COPY WORDS AND CHARACTERS
 
 ** Use yw to copy words and different movements with y. **
 
@@ -800,7 +919,7 @@ NOTE: Macros are powerful for repetitive editing tasks!
 
 ---> The quick brown fox jumps over the lazy dog
 
-### Lesson 7.3: VISUAL SELECTION COPY AND PASTE
+### Lesson 9.3: VISUAL SELECTION COPY AND PASTE
 
 ** Use visual mode for precise copying. **
 
@@ -826,7 +945,7 @@ NOTE: Macros are powerful for repetitive editing tasks!
 
 ---> This entire line will be copied using visual line mode
 
-### Lesson 7.4: COPY TO SPECIFIC REGISTERS
+### Lesson 9.4: COPY TO SPECIFIC REGISTERS
 
 ** Use "ay to copy to register 'a' and "ap to paste from register 'a'. **
 
@@ -848,7 +967,7 @@ NOTE: Macros are powerful for repetitive editing tasks!
 ---> Second line goes to register b  
 ---> Third line goes to register c
 
-### Lesson 7.5: COPY AND PASTE WITH TEXT OBJECTS
+### Lesson 9.5: COPY AND PASTE WITH TEXT OBJECTS
 
 ** Combine copy with text objects for efficient copying. **
 
@@ -880,7 +999,7 @@ NOTE: Macros are powerful for repetitive editing tasks!
 
 ---> This function should complete the copy practice exercises
 
-### Lesson 7.6: COPY TO SYSTEM CLIPBOARD
+### Lesson 9.6: COPY TO SYSTEM CLIPBOARD
 
 ** Use "+ to access system clipboard. **
 
@@ -894,7 +1013,7 @@ NOTE: Macros are powerful for repetitive editing tasks!
 
 ---> This text will be copied to your system clipboard
 
-### Lesson 7.7: COPY AND PASTE PRACTICE
+### Lesson 9.7: COPY AND PASTE PRACTICE
 
 ** Practice different copy and paste combinations. **
 

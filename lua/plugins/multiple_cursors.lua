@@ -38,6 +38,12 @@ return {
         -- Delete the main cursor.
         layerSet({ "n", "x" }, "<leader>x", mc.deleteCursor, { desc = "Delete Cursor" })
 
+        -- use nvim default instead of flash.nvim
+        layerSet({ "n", "v" }, "f", "f")
+        layerSet({ "n", "v" }, "F", "F")
+        layerSet({ "n", "v" }, "t", "t")
+        layerSet({ "n", "v" }, "T", "T")
+
         -- Enable and clear cursors using escape.
         layerSet("n", "<esc>", function()
           if not mc.cursorsEnabled() then
