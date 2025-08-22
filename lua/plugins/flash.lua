@@ -52,6 +52,7 @@ return {
           mode = { "n" },
           function()
             require("flash").jump({
+              labels = "asdfghjklqwertyuiopzxcvbnmASDFGHJKLQWERTYUIOPZXCVBNM123456789",
               search = {
                 mode = "search",
               },
