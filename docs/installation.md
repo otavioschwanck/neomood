@@ -131,7 +131,7 @@ First, fork this repository
 mv ~/.config/nvim ~/.config/nvim.backup
 
 # Clone NeoMood (change username with yours)
-git clone https://github.com/yourusername/neomood.git ~/.config/nvim
+git clone git@github.com:yourusername/neomood.git ~/.config/nvim
 
 # Start Neovim (plugins will auto-install)
 nvim
@@ -143,7 +143,7 @@ Try NeoMood without affecting your current setup:
 
 ```bash
 # Clone to test directory (change username with yours)
-git clone https://github.com/yourusername/neomood.git ~/.config/neomood-test
+git clone git@github.com:yourusername/neomood.git ~/.config/neomood-test
 
 # Start Neovim with test config
 NVIM_APPNAME=neomood-test nvim

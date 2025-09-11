@@ -22,7 +22,7 @@ Clone this repository to your Neovim configuration directory:
 mv ~/.config/nvim ~/.config/nvim.backup
 
 # Clone NeoMood (from your fork)
-git clone https://github.com/yourusername/neomood.git ~/.config/nvim
+git clone git@github.com:yourusername/neomood.git ~/.config/nvim
 ```
 
 ### Try Before You Commit
@@ -31,7 +31,7 @@ To test NeoMood without replacing your current configuration:
 
 ```bash
 # Clone to a temporary directory (change username for yourname, after you forked this repository)
-git clone https://github.com/yourusername/neomood.git ~/.config/neomood-test
+git clone git@github.com:yourusername/neomood.git ~/.config/neomood-test
 
 # Start Neovim with the test configuration
 NVIM_APPNAME=neomood-test nvim
