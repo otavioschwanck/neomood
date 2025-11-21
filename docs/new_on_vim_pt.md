@@ -318,17 +318,17 @@ NOTA: Agora você conhece i, I, a, A, o, O - as seis formas de entrar no modo In
 
   1. Mova o cursor para a linha abaixo marcada com --->.
 
-  2. Mova o cursor para o primeiro erro em "errddo".
+  2. Mova o cursor para o 'x' em "coxsas".
 
-  3. Digite r e depois a para substituir o r por a.
+  3. Digite r e depois i para substituir o x por i.
 
-  4. Mova o cursor para o 'd' extra em "errddo" e digite r depois o para substitui-lo.
+  4. Mova para o 'x' em "dixite" e digite r depois g.
 
-  5. Continue corrigindo a palavra.
+  5. Continue corrigindo os outros erros.
 
----> Para corrigir as errddo coisas, digite rx caracteres e a tecla X.
+---> Para corrigir as coxsas erradaz, dixite r e o caractere correto.
 
-NOTA: A linha deve ficar: Para corrigir as coisas erradas, digite rx caracteres e a tecla X.
+NOTA: A linha deve ficar: Para corrigir as coisas erradas, digite r e o caractere correto.
 
 ## Lição 3: Seleção Visual
 
@@ -369,7 +369,7 @@ A linha deve agora mostrar: A raposa marrom pula sobre o cão preguiçoso.marrom
   5. Digite d para deletar as linhas selecionadas.
 
 ---> Linha um precisa ser deletada
----> Linha dois deve ficar  
+---> Linha dois precisa ser deletada
 ---> Linha três também precisa ser deletada
 
 ### Lição 3.3: SELEÇÃO EM BLOCO

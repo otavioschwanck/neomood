@@ -216,7 +216,7 @@ NOTE: Line numbers are shown on the left side of the screen.
 
   5. Type dw to delete the word.
 
----> There are words you can delete from this line.
+---> There are a some words you can delete from this line.
 
 NOTE: The line should now read: There are words you can delete from this line.
 
@@ -318,17 +318,17 @@ NOTE: Now you know i, I, a, A, o, O - the six ways to enter Insert mode!
 
   1. Move the cursor to the line below marked --->.
 
-  2. Move the cursor to the first mistake in "wrng".
+  2. Move the cursor to the 'x' in "fxw".
 
-  3. Type r and then o to replace w with o.
+  3. Type r and then i to replace x with i.
 
-  4. Move the cursor to the 'g' in "wrng" and type r then g to replace it.
+  4. Move the cursor to the 'w' in "fxw" and type r then x to replace it.
 
-  5. Continue fixing the word.
+  5. Continue fixing the other errors.
 
----> To fxx the wrng things, type rx characters and the X key.
+---> To fxw the wromg things, tipe r and the correct character.
 
-NOTE: The line should read: To fix the wrong things, type rx characters and the X key.
+NOTE: The line should read: To fix the wrong things, type r and the correct character.
 
 ## Lesson 3: Visual Selection
 
@@ -369,7 +369,7 @@ The line should now read: The quick brown fox jumps over the lazy dog.brown fox
   5. Type d to delete the selected lines.
 
 ---> Line one needs to be deleted
----> Line two should stay  
+---> Line two needs to be deleted
 ---> Line three also needs to be deleted
 
 ### Lesson 3.3: BLOCK SELECTION
