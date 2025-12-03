@@ -90,9 +90,15 @@ This document provides a comprehensive overview of all plugins included in NeoMo
 **Key Mappings**: `<leader>gt` (open time machine), `<C-j>/<C-k>` (navigate history), `<leader>gm` (show commit message), `<C-g>` (restore version)
 
 ### [Vim Fugitive](https://github.com/tpope/vim-fugitive)
-**Purpose**: Git integration  
-**Features**: Git commands, blame, diff, merge conflict resolution  
+**Purpose**: Git integration
+**Features**: Git commands, blame, diff, merge conflict resolution
 **Key Mappings**: `<leader>gB` (git blame)
+
+### [GitHub PR Reviewer](https://github.com/otavioschwanck/github-pr-reviewer.nvim)
+**Purpose**: GitHub Pull Request review and management
+**Features**: Review PRs from Neovim, suggest changes, open files from PR, FZF integration
+**Key Mappings**: `<leader>p` (PR review menu), `<leader>p` (suggest change in visual mode)
+**Configuration**: FZF picker integration, auto-open files on review
 
 ## Visual Enhancements
 
