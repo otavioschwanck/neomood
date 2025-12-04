@@ -106,6 +106,55 @@ return {
         visit_first_call = false,
         focus_when_call = false,
       })
+
+      -- Claude Code integration
+      set("<leader>oc", {
+        cmd = "claude",
+        name = "Claude Code",
+        open_as = "pane",
+        size = "35%",
+        visit_first_call = true,
+        focus_when_call = true,
+        read_after_cmd = false,
+        orientation = "horizontal",
+      })
+
+      set("<leader>oC", {
+        cmd = "claude --resume",
+        name = "Claude Code Resume",
+        open_as = "pane",
+        size = "35%",
+        visit_first_call = true,
+        focus_when_call = true,
+        read_after_cmd = false,
+        orientation = "horizontal",
+      })
+
+      -- Load Claude integration module
+      local claude = require("neomood.claude")
+
+      -- Send current file to Claude Code (with diagnostics if available)
+      vim.keymap.set("n", "<leader>lc", function()
+        claude.send_file_with_context()
+      end, { silent = true, noremap = true, desc = "Send current file to Claude Code" })
+
+      -- Send current file and line to Claude Code (with diagnostics if available)
+      vim.keymap.set("n", "<leader>lC", function()
+        claude.send_line_with_context()
+      end, { silent = true, noremap = true, desc = "Send current file and line to Claude Code" })
+
+      -- Additional Claude Code keybindings
+      vim.keymap.set("n", "<leader>ld", function()
+        claude.send_diagnostics()
+      end, { silent = true, noremap = true, desc = "Send LSP diagnostics to Claude Code" })
+
+      vim.keymap.set("v", "<leader>lv", function()
+        claude.send_selection()
+      end, { silent = true, noremap = true, desc = "Send visual selection to Claude Code" })
+
+      vim.keymap.set("n", "<leader>lm", function()
+        claude.send_custom_message()
+      end, { silent = true, noremap = true, desc = "Send custom message to Claude Code" })
     end,
   },
 }

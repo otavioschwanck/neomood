@@ -242,6 +242,37 @@ Obs: You need to enable the plugin on obsidian.lua first to use.
 - `<leader>rd` - Rails destroy
 - `<leader>ri` - Rails db:migrate
 
+### Claude Code Integration
+
+Integration with Claude Code AI assistant via tmux. Allows sending files, lines, and code selections directly to Claude for review and assistance.
+
+**Setup Commands:**
+- `<leader>oc` - Open Claude Code in tmux pane
+- `<leader>oC` - Open Claude Code with --resume flag
+
+**Send to Claude:**
+- `<leader>lc` - Send current file to Claude (with LSP diagnostics if available)
+  - Format: `@relative/path/to/file.rb`
+  - Automatically includes LSP diagnostics for the file
+- `<leader>lC` - Send current file and line to Claude (with line diagnostics)
+  - Format: `@relative/path/to/file.rb:L123`
+  - Includes diagnostics for the specific line
+- `<leader>ld` - Send all LSP diagnostics to Claude for help
+  - Sends file reference with all current diagnostics
+- `<leader>lv` (Visual) - Send visual selection to Claude
+  - Format: `@relative/path/to/file.rb:L10-L20`
+  - Includes the selected code in a markdown code block
+- `<leader>lm` - Send custom message to Claude
+  - Opens a prompt to type a custom message
+
+**Features:**
+- Uses relative paths (e.g., `app/models/user.rb` instead of `/home/user/project/app/models/user.rb`)
+- Automatically integrates with LSP to send diagnostics (errors, warnings)
+- Supports Claude Code's `@file:L123` syntax for precise file and line references
+- Works seamlessly with tmux-awesome-manager
+
+**Tip**: Open Claude Code once with `<leader>oc`, then use `<leader>lc` or `<leader>lC` to quickly send files or lines for review. Claude will understand the file references and can read them directly.
+
 ### Git Operations - [Snacks.nvim](https://github.com/folke/snacks.nvim)
 - `<leader>gg` - LazyGit (via snacks)
 
