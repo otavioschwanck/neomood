@@ -121,7 +121,7 @@ return {
 
       set("<leader>oC", {
         cmd = "claude --resume",
-        name = "Claude Code Resume",
+        name = "Claude Code",
         open_as = "pane",
         size = "35%",
         visit_first_call = true,

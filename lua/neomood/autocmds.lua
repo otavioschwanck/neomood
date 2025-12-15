@@ -65,6 +65,20 @@ function M.set()
     end,
   })
 
+  -- Dimming quando Neovim perde foco (outro pane do tmux ativo)
+  vim.api.nvim_create_autocmd("FocusLost", {
+    callback = function()
+      vim.cmd("hi Normal guibg=#181825")
+      vim.cmd("hi NormalNC guibg=#181825")
+    end,
+  })
+
+  vim.api.nvim_create_autocmd("FocusGained", {
+    callback = function()
+      vim.cmd("hi Normal guibg=#1e1e2e")
+      vim.cmd("hi NormalNC guibg=#1e1e2e")
+    end,
+  })
 
   -- Refresh gitsigns when focusing a buffer (since watch_dir is disabled)
   local gitsigns_timer = nil
