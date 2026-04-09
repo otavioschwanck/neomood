@@ -51,6 +51,20 @@ return {
         cmd = { "bundle", "exec", "rubocop", "--lsp" },
       })
 
+      -- Blocklist: servers that should never start, even if called via LspStart
+      local lsp_blocklist = { "solargraph" }
+
+      vim.lsp.enable("solargraph", false)
+
+      vim.api.nvim_create_autocmd("LspAttach", {
+        callback = function(args)
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if client and vim.tbl_contains(lsp_blocklist, client.name) then
+            client:stop()
+          end
+        end,
+      })
+
       -- Enable servers not managed by mason
       vim.lsp.enable("ts_ls")
       vim.lsp.enable("rubocop")

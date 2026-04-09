@@ -53,7 +53,7 @@ function M.kill_ruby_instances()
   vim.cmd("silent !killall -9 rails ruby spring bundle;lsof -i :3000 | grep LISTEN | awk '{print $2}' | xargs kill;")
 
   vim.defer_fn(function()
-    vim.cmd("LspStart solargraph")
+    vim.cmd("LspStart ruby_lsp")
   end, 2000)
 end
 
